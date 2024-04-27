@@ -70,7 +70,7 @@ function drawPoint(i, j) {
     ggbApplet.setAuxiliary(`P${counter}`, true);
     ggbApplet.setVisible(`P${counter}`, true);
     ggbApplet.setLabelVisible(`P${counter}`, false);
-    ggbApplet.setPointSize(`P${counter}`, 5);
+    ggbApplet.setPointSize(`P${counter}`, 3);
     planePointList.push(`P${counter}`);
 }
 
