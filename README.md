@@ -5,6 +5,8 @@ Projekt zur **Visualisierung von Vektoren in der Ebene**.
 Das Programm zur Vektorvisualisierung dient dem Verständnis und soll den Lernenden beim Erarbeiten der Darstellung einer Ebene durch zwei (linear unabhängige) Vektoren helfen.
 Die Lernenden haben das Ziel Punkte in einer Ebene zu erreichen, indem sie sich mit den Vektoren im Raum bewegen.
 
+Zum öffnen des Programmes müssen die Schülerinnen und Schüler die index.html Datei speichern und (in einem Browser ihrer Wahl) ausführen.
+
 ## Steuerung
 Befehle werden durch Klicken von Tasten ausgeführt:
 
@@ -51,4 +53,4 @@ Im folgenden werden Beispiele für Aufgaben aufgelistet um die Visualisierung si
 Warum haben wir uns für diese Tools entschieden?
 - GeoGebra: Im Mathematikunterricht bereits bekannt (auch den SuS). Nützliches Tool für Visualisierungen von Funktionen in 2-3 dimensionalen Koordinatensystemen. Viele der benötigten Funktionen waren bereits verfügbar und mussten nur korrekt integriert werden.
 - Javascript: Die Einbettung mit Javascript vereinfacht die Programmierung komplexerer Prozesse (wie das Zeichnen der Ebene) und ermöglicht eine Steuerung durch Nutzung der Tastatur.
-- HTML: Erlaubt es das in Javascript eingebundene GeoGebra Applet einfach anzuzeigen. Für die SuS bedeutet dies, dass sie sich nicht mit diversen Dateien rumschlagen müssen, sondern die HTML-Datei einfach lokal speichern und ausführen (in einem Browser ihrer Wahl) oder den Zugriff über einen Link (https://html-preview.github.io/?url=https://github.com/antal-horvath/vector-visualisierung/blob/main/index.html) bekommen können.
+- HTML: Erlaubt es das in Javascript eingebundene GeoGebra Applet einfach anzuzeigen. Für die SuS bedeutet dies, dass sie sich nicht mit diversen Dateien rumschlagen müssen, sondern die HTML-Datei (index.html) einfach lokal speichern und in einem Browser ihrer Wahl ausführen.
