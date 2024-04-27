@@ -8,19 +8,19 @@ Die Lernenden haben das Ziel Punkte in einer Ebene zu erreichen, indem sie sich 
 ## Befehle
 
 Die Bewegungen: 
-- *+* Vektor a: :W: *oder*  ⬆️
-- *-* Vektor a: s *oder* ⬇️
-- *+* Vektor b: d *oder* ➡️
-- *-* Vektor b: a *oder* ⬅️
+- *+* Vektor a: **W** *oder*  ⬆️
+- *-* Vektor a: **S** *oder* ⬇️
+- *+* Vektor b: **D** *oder* ➡️
+- *-* Vektor b: **A** *oder* ⬅️
 
 Punkt wieder auf (0,0,0) setzen: 0️⃣
 
-Ebene zeichnen: "1-Taste"
+Ebene zeichnen: 1️⃣
 
-Punkte in der Ebene Zeichnern "2-Taste"
+Punkte in der Ebene Zeichnern: 2️⃣
 
-Neue Ausgangsvektoren: "n-Taste"
-
+Neue Ausgangsvektoren: **N**
+:n:
 ## Didaktisches Konzept
 Ziel bei der Arbeitung mit der Visualisierung ist:
 
