@@ -6,12 +6,13 @@ Das Programm zur Vektorvisualisierung dient dem Verständnis und soll den Lernen
 Die Lernenden haben das Ziel Punkte in einer Ebene zu erreichen, indem sie sich mit den Vektoren im Raum bewegen.
 
 ## Befehle
+Befehle werden durch Klicken von Tasten ausgeführt:
 
 Die Bewegungen: 
-- *+* Vektor a: **W** *oder*  ⬆️
-- *-* Vektor a: **S** *oder* ⬇️
-- *+* Vektor b: **D** *oder* ➡️
-- *-* Vektor b: **A** *oder* ⬅️
+- Vektor **a** addieren: **W** *oder*  ⬆️
+- Vektor **a** subtrahieren: **S** *oder* ⬇️
+- Vektor **b** addieren: **D** *oder* ➡️
+- Vektor **b** subtrahieren **A** *oder* ⬅️
 
 Punkt wieder auf (0,0,0) setzen: 0️⃣
 
