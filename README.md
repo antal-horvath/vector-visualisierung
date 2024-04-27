@@ -16,7 +16,7 @@ Die Bewegungen:
 - Vektor **b** addieren: 🇩 *oder* ➡️
 - Vektor **b** subtrahieren 🇦 *oder* ⬅️
 
-Punkt wieder auf (0,0,0) setzen: 0️⃣
+Punkt wieder auf (0,0,0) setzen: 🇷
 
 Ebene zeichnen: 1️⃣
 
