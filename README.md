@@ -9,10 +9,10 @@ Die Lernenden haben das Ziel Punkte in einer Ebene zu erreichen, indem sie sich 
 Befehle werden durch Klicken von Tasten ausgeführt:
 
 Die Bewegungen: 
-- Vektor **a** addieren: **W** *oder*  ⬆️
-- Vektor **a** subtrahieren: **S** *oder* ⬇️
-- Vektor **b** addieren: **D** *oder* ➡️
-- Vektor **b** subtrahieren **A** *oder* ⬅️
+- Vektor **a** addieren:  🇼 *oder*  ⬆️
+- Vektor **a** subtrahieren:  🇸 *oder* ⬇️
+- Vektor **b** addieren: 🇩 *oder* ➡️
+- Vektor **b** subtrahieren 🇦 *oder* ⬅️
 
 Punkt wieder auf (0,0,0) setzen: 0️⃣
 
@@ -20,7 +20,7 @@ Ebene zeichnen: 1️⃣
 
 Punkte in der Ebene Zeichnern: 2️⃣
 
-Neue Ausgangsvektoren: **N**
+Neue Ausgangsvektoren: 🇳
 
 ## Didaktisches Konzept
 Ziel bei der Bearbeitung mit der Visualisierung ist:
