@@ -64,8 +64,8 @@ function parseGgbVectorString(s) {
 function calcRandomPoint() {
     // const a = parseGgbVectorString(ggbApplet.getValueString('a'));
     // const b = parseGgbVectorString(ggbApplet.getValueString('b'));
-    const r = Math.floor((maxA - minA) * Math.random() + minA);
-    const s = Math.floor((maxB - minB) * Math.random() + minB);
+    let r = Math.floor((maxA - minA) * Math.random() + minA);
+    let s = Math.floor((maxB - minB) * Math.random() + minB);
     while ((r === 0 && s === 0) || (r === alpha && s === beta)) {
         r = Math.floor((maxA - minA) * Math.random() + minA);
         s = Math.floor((maxB - minB) * Math.random() + minB);
