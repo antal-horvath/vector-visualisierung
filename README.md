@@ -48,16 +48,6 @@ Im folgenden werden Beispiele für Aufgaben aufgelistet um die Visualisierung si
 **Vektorvisualisierung** ist im Rahmen des Wahlmoduls 1.11 an der PH Muttenz FHNW zustande gekommen. Es handelt sich bei dem fertigen Produkt um ein GeoGebra Applet, welches mit Javascript eingebunden wurde und als HTML-Datei (entweder lokal oder via Link) ausführbar ist.
 
 Warum haben wir uns für diese Tools entschieden?
-- GeoGebra: Im Mathematikunterricht bereits bekannt (auch den SuS). Nützliches Tool für Visualisierungen von Funktionen in 2-3 dimensionalen Koordinatensystemen. Viele der benötigten Funktionen waren bereits verfügbar.
-- 🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉
--🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯 🇰 🇱 🇲 🇳 🇴 🇵 🇶 🇷 🇸 🇹 🇺 🇻 🇼 🇽 🇾 🇿
-
-🆆🅰🆂🅳🅽
-
-🅆🄰🅂🄳🄽
-
- 🇼  🇦  🇸  🇩  🇳 
-
-🅦🅐🅢🅓🅝
-
-ⓦⓐⓢⓓⓝ
+- GeoGebra: Im Mathematikunterricht bereits bekannt (auch den SuS). Nützliches Tool für Visualisierungen von Funktionen in 2-3 dimensionalen Koordinatensystemen. Viele der benötigten Funktionen waren bereits verfügbar und mussten nur korrekt integriert werden.
+- Javascript: Die Einbettung mit Javascript vereinfacht die Programmierung komplexerer Prozesse (wie das Zeichnen der Ebene) und ermöglicht eine Steuerung durch Nutzung der Tastatur.
+- HTML: Erlaubt es das in Javascript eingebundene GeoGebra Applet einfach anzuzeigen. Für die SuS bedeutet dies, dass sie sich nicht mit diversen Dateien rumschlagen müssen, sondern die HTML-Datei einfach lokal speichern und ausführen (in einem Browser ihrer Wahl) oder den Zugriff über einen Link (https://html-preview.github.io/?url=https://github.com/antal-horvath/vector-visualisierung/blob/main/index.html) bekommen können.
