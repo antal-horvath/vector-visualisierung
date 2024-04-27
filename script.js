@@ -1,17 +1,17 @@
 // imports
-const { range, filter, map, takeUntil, timer, flatMap, tap, delay, pipe, Subject, from, of, EMPTY } = rxjs;
+const { range, filter, map, takeUntil, timer, flatMap, tap, delay, pipe, Subject, from, of, EMPTY, scan, takeWhile, finalize } = rxjs;
 const el = document.getElementById('ggb')
 
 // hyperparams
-const minI= -4;
-const minJ= -4;
-const maxI= 4;
-const maxJ= 4;
+const minI= -3;
+const minJ= -3;
+const maxI= 3;
+const maxJ= 3;
 const minPlaneDraw = -3;
 const maxPlaneDraw = 3;
 const minXYZ = -2;
 const maxXYZ = 2;
-const drawRefreshRate = 200;
+const drawRefreshRate = 50;
 
 // params
 let alpha = 0;
@@ -25,7 +25,7 @@ const planePointList = [];
 const signal = new Subject();
 
 const subscriptions = [];
-
+const onHitSubscription = [];
 
 function recursiveDrawAndWait(i, j) {
 
@@ -149,6 +149,7 @@ function setRandomPoint() {
     }
     // ggbApplet.evalCommand(`P=(${x},${y},${z})`);
     ggbApplet.evalCommand(`P=O + ${r}*a + ${s}*b`);
+    ggbApplet.setPointSize('P', 6);
 }
 
 
@@ -184,11 +185,15 @@ function ggbOnInit(name, api){
     api.setLabelVisible('a', true);
     api.setLabelVisible('b', true);
     api.setLabelVisible('Current', false)
-    api.setLabelVisible('Last', false)
+    api.setPointSize(`Current`, 5);
+    api.setColor('Current', 0, 0, 0);
+    api.setLabelVisible('Last', false);
+    api.setPointSize(`Last`, 3);
+    api.setColor('Last', 0, 0, 0);
 
 
-    ggbApplet.evalCommand(`P=(0,0,0)`);
-    ggbApplet.setPointSize(`P`, 9);
+    api.evalCommand(`P=(0,0,0)`);
+    api.setPointSize(`P`, 6);
 
     setScoreText(api);
     setRandomPoint();
@@ -206,6 +211,19 @@ function setScoreText(api) {
     api.setTextValue('score', 'Score: ' + score);
 }
 
+
+function onHit() {
+    return timer(0, 100).pipe(
+        scan(x => ++x, 0),
+        takeWhile(x => x <= 9),
+        tap(size => {
+            ggbApplet.setPointSize('P', size);
+        }),
+        finalize(() => {
+            gameFinished();
+        }),
+    );
+}
 
 function gameFinished() {
     console.log('Game finished');
@@ -251,7 +269,8 @@ function updateVectors() {
     updateState = 0;
 
     if (checkFinished()) {
-        gameFinished();
+        onHitSubscription.forEach(sub => sub.unsubscribe());
+        onHit().subscribe();
     }
 }
 
@@ -325,12 +344,13 @@ document.addEventListener('keyup', (e) => {
 
 function createParams() {
     const resolution = getResolution();
-    const relativeMargin = 0.09;
+    const relativeMarginX = 0.03;
+    const relativeMarginY = 0.12;
     return {
         appName: 'classic',
         showAlgebraInput: true,
-        width: resolution.width,
-        height: resolution.height * (1 - relativeMargin),
+        width: resolution.width * (1 - relativeMarginX),
+        height: resolution.height * (1 - relativeMarginY),
         material_id: 'kyvcqnyg'
     }
 }
