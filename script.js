@@ -49,6 +49,10 @@ function createDrawStream1() {
 
     return of({i:minPlaneDraw,j:minPlaneDraw}).pipe(
         flatMap(obj => recursiveDrawAndWait(obj.i, obj.j)),
+        finalize(() => {
+            ggbApplet.setColor('P', 0, 175, 0);
+            console.log('Plane drawn');
+        }),
     )
 }
 
@@ -66,7 +70,7 @@ function drawPoint(i, j) {
     ggbApplet.setAuxiliary(`P${counter}`, true);
     ggbApplet.setVisible(`P${counter}`, true);
     ggbApplet.setLabelVisible(`P${counter}`, false);
-    ggbApplet.setPointSize(`P${counter}`, 6);
+    ggbApplet.setPointSize(`P${counter}`, 5);
     planePointList.push(`P${counter}`);
 }
 
