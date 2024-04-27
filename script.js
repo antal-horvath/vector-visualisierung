@@ -1,3 +1,5 @@
+const { range, filter, map } = rxjs;
+
 const el = document.getElementById('ggb')
 
 // hyperparams
