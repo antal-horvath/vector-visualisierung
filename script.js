@@ -154,7 +154,6 @@ function reset () {
 
 function updateVectors() {
     const current = parseGgbVectorString(ggbApplet.getValueString('Current'));
-    console.log(current)
     ggbApplet.evalCommand(`Last=(${current.x},${current.y},${current.z})`);
     ggbApplet.evalCommand(`Current=O + ${alpha}*a + ${beta}*b`);
     ggbApplet.evalCommand('t=Vector(Last,Current)');
@@ -195,7 +194,6 @@ document.addEventListener('keyup', (e) => {
             updateVectors();
             break;
         case 'e':
-            console.log('e pressed')
             togglePlaneVisibility();
             break;
         case 'r':
