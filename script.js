@@ -18,6 +18,12 @@ const planePointList = [];
 // functions
 const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
+function getResolution() {
+    const width = window.screen.availWidth;
+    const height = window.screen.availHeight;
+    return { width, height };
+}
+
 async function drawPlane() {
     let counter = 0;
     const refinement = 3;
@@ -222,16 +228,18 @@ document.addEventListener('keyup', (e) => {
 
 });
 
-const params = {
-    appName: 'classic',
-    showAlgebraInput: false,
-    width: 1600,
-    height: 800,
-    material_id: 'kyvcqnyg'
+function createParams() {
+    const resolution = getResolution();
+    const relativeMargin = 0.09;
+    return {
+        appName: 'classic',
+        showAlgebraInput: false,
+        width: resolution.width,
+        height: resolution.height * (1 - relativeMargin),
+        material_id: 'kyvcqnyg'
+    }
 }
-
-const ggb = new GGBApplet(params, true);
-
+const ggb = new GGBApplet(createParams(), true);
 ggb.inject(el);
 
 
