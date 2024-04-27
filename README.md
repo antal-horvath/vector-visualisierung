@@ -5,7 +5,7 @@ Projekt zur **Visualisierung von Vektoren in der Ebene**.
 Das Programm zur Vektorvisualisierung dient dem Verständnis und soll den Lernenden beim Erarbeiten der Darstellung einer Ebene durch zwei (linear unabhängige) Vektoren helfen.
 Die Lernenden haben das Ziel Punkte in einer Ebene zu erreichen, indem sie sich mit den Vektoren im Raum bewegen.
 
-Zum öffnen des Programmes müssen die Schülerinnen und Schüler die index.html Datei speichern und (in einem Browser ihrer Wahl) ausführen.
+Zum öffnen des Programmes müssen die Schülerinnen und Schüler die index.html Datei speichern und (in einem Browser ihrer Wahl) ausführen. Die Dateien style.css und script.js müssen im gleichen Verzeichnis wie die index.html Datei liegen.
 
 ## Steuerung
 Befehle werden durch Klicken von Tasten ausgeführt:
