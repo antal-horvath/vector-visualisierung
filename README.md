@@ -36,8 +36,8 @@ Im folgenden werden Beispiele für Aufgaben aufgelistet um die Visualisierung si
 
 1. Die Bewege den blauen Punkt mit Hilfe der Pfeiltasten, so dass er den Grünen Punkt erreicht. wiederhole dies, bis du 10 Punkte erreicht hast.
 2. Schalte nun die Ebene ein und drehe die Ansicht ein wenig. Wiederhole die 1. Aufgabe und mache noch einmal 3 Punkte.
-   1. a) Was fällt dir auf, wo liegen die Punkte und die Vektoren, die du verwendest?
-   2. b) Notiere dir eine Regelung.
+   1. Was fällt dir auf, wo liegen die Punkte und die Vektoren, die du verwendest?
+   2. Notiere dir eine Regelung.
 3. Schau dir die Punkte **Current** und **P** an. Current ist der aktuelle plaue Punkt und P ist der zu erreichende Punkt. Wenn du die Vektoren a beziehungsweise b addiert oder subtrahierst (Pfeiltaste klickst) was passiert dann mit den Koordinaten des Punkt **Current**? Notiere die Erkenntnisse.
 4. Versuche den Punkt **P** rechnerisch zu erreichen indem du die eine Gleichungssystem aufstellst (P=t*a+s*b) und bestimme wie oft a und b verwendet werden müssen um den Punt zu erreichen. Überprüfe indem du die Pfeiltasten so oft klickst wie du bestimmt hast.
 
