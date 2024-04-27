@@ -8,12 +8,12 @@ Die Lernenden haben das Ziel Punkte in einer Ebene zu erreichen, indem sie sich 
 ## Befehle
 
 Die Bewegungen: 
-- *+* Vektor a: w *oder*  "obere Pfeiltasten"
-- *-* Vektor a: s *oder* "untere Pfeiltaste"
-- *+* Vektor b: d *oder* "rechte Pfeiltaste"
-- *-* Vektor b: a *oder* "linke Pfeiltaste"
+- *+* Vektor a: :W: *oder*  ⬆️
+- *-* Vektor a: s *oder* ⬇️
+- *+* Vektor b: d *oder* ➡️
+- *-* Vektor b: a *oder* ⬅️
 
-Punkt wieder auf (0,0,0) setzen: "0-Taste"
+Punkt wieder auf (0,0,0) setzen: 0️⃣
 
 Ebene zeichnen: "1-Taste"
 
