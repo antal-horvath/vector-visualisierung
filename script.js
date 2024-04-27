@@ -1,12 +1,17 @@
-const { range, filter, map } = rxjs;
-
+// imports
+const { range, filter, map, takeUntil, timer, flatMap, tap, delay, pipe, Subject, from, of, EMPTY } = rxjs;
 const el = document.getElementById('ggb')
 
 // hyperparams
-const minA= -5;
-const minB= -5;
-const maxA= 5;
-const maxB= 5;
+const minI= -5;
+const minJ= -5;
+const maxI= 5;
+const maxJ= 5;
+const minPlaneDraw = -3;
+const maxPlaneDraw = 3;
+const minXYZ = -2;
+const maxXYZ = 2;
+const drawRefreshRate = 500;
 
 // params
 let alpha = 0;
@@ -16,9 +21,38 @@ let score = 0;
 let showPlane = false;
 const planePointList = [];
 
+// rxjs objects
+const signal = new Subject();
+
+const subscriptions = [];
+
+
+function recursiveDrawAndWait(i, j) {
+
+    if (i > maxPlaneDraw) {
+        i = minPlaneDraw;
+        j += 1;
+    }
+    if (j > maxPlaneDraw) {
+        return EMPTY;
+    }
+    drawPoint(i,j);
+    return timer(drawRefreshRate).pipe(
+        takeUntil(signal),
+        flatMap(() => recursiveDrawAndWait(i + 1, j))
+    );
+}
+
+function createDrawStream1() {
+
+    const refinement = 1;
+
+    return of({i:minPlaneDraw,j:minPlaneDraw}).pipe(
+        flatMap(obj => recursiveDrawAndWait(obj.i, obj.j)),
+    )
+}
 
 // functions
-const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 function getResolution() {
     const width = window.screen.availWidth;
@@ -26,25 +60,23 @@ function getResolution() {
     return { width, height };
 }
 
-async function drawPlane() {
-    let counter = 0;
-    const refinement = 3;
-    for (let i = -maxA * refinement; i <= maxA * refinement; i++) {
-        for (let j = -maxB * refinement; j <= maxB * refinement; j++) {
-            ggbApplet.evalCommand(`P${counter}=O + ${i / refinement}*a + ${j / refinement}*b`);
-            ggbApplet.setAuxiliary(`P${counter}`, true);
-            ggbApplet.setVisible(`P${counter}`, true);
-            ggbApplet.setLabelVisible(`P${counter}`, false);
-            ggbApplet.setPointSize(`P${counter}`, 1);
-            await sleepNow(30 / refinement / refinement);
+function drawPoint(i, j) {
+    const counter = planePointList.length;
+    ggbApplet.evalCommand(`P${counter}=O + ${i}*a + ${j}*b`);
+    ggbApplet.setAuxiliary(`P${counter}`, true);
+    ggbApplet.setVisible(`P${counter}`, true);
+    ggbApplet.setLabelVisible(`P${counter}`, false);
+    ggbApplet.setPointSize(`P${counter}`, 6);
+    planePointList.push(`P${counter}`);
+}
 
-            planePointList.push(`P${counter}`);
-            counter += 1;
-        }
-    }
+function drawPlane() {
+    subscriptions.push(createDrawStream1().subscribe());
 }
 
 function deletePlane() {
+    subscriptions.forEach(sub => sub.unsubscribe());
+    subscriptions.length = 0;
     planePointList.forEach(point => {
         ggbApplet.deleteObject(point);
     });
@@ -63,14 +95,57 @@ function parseGgbVectorString(s) {
     return {x, y, z};
 }
 
-function calcRandomPoint() {
+function calcRandomVector() {
+    let x = Math.floor((maxXYZ - minXYZ) * Math.random() + minXYZ);
+    let y = Math.floor((maxXYZ - minXYZ) * Math.random() + minXYZ);
+    let z = Math.floor((maxXYZ - minXYZ) * Math.random() + minXYZ);
+    while (x === 0 && y === 0 && z === 0) {
+        x = Math.floor((maxXYZ - minXYZ) * Math.random() + minXYZ);
+        y = Math.floor((maxXYZ - minXYZ) * Math.random() + minXYZ);
+        z = Math.floor((maxXYZ - minXYZ) * Math.random() + minXYZ);
+    }
+    return {x, y, z};
+
+}
+
+function setRandomAandB() {
+    let a = calcRandomVector();
+    let b = calcRandomVector();
+
+    let kx = a.x / b.x;
+    let ky = a.y / b.y;
+    let kz = a.z / b.z;
+
+    let nanCounter = 0;
+    if (isNaN(kx)) {
+        nanCounter += 1;
+        kx = ky;
+    }
+    if (isNaN(ky)) {
+        nanCounter += 1;
+        ky = kz;
+    }
+    if (isNaN(kz)) {
+        nanCounter += 1;
+        kz = kx;
+    }
+
+    if (kx === ky && ky === kz || nanCounter > 1) {
+        b = calcRandomVector();
+    }
+
+    ggbApplet.evalCommand(`A=(${a.x},${a.y},${a.z})`);
+    ggbApplet.evalCommand(`B=(${b.x},${b.y},${b.z})`);
+}
+
+function setRandomPoint() {
     // const a = parseGgbVectorString(ggbApplet.getValueString('a'));
     // const b = parseGgbVectorString(ggbApplet.getValueString('b'));
-    let r = Math.floor((maxA - minA) * Math.random() + minA);
-    let s = Math.floor((maxB - minB) * Math.random() + minB);
+    let r = Math.floor((maxI - minI) * Math.random() + minI);
+    let s = Math.floor((maxJ - minJ) * Math.random() + minJ);
     while ((r === 0 && s === 0) || (r === alpha && s === beta)) {
-        r = Math.floor((maxA - minA) * Math.random() + minA);
-        s = Math.floor((maxB - minB) * Math.random() + minB);
+        r = Math.floor((maxI - minI) * Math.random() + minI);
+        s = Math.floor((maxJ - minJ) * Math.random() + minJ);
     }
     // ggbApplet.evalCommand(`P=(${x},${y},${z})`);
     ggbApplet.evalCommand(`P=O + ${r}*a + ${s}*b`);
@@ -111,8 +186,12 @@ function ggbOnInit(name, api){
     api.setLabelVisible('Current', false)
     api.setLabelVisible('Last', false)
 
+
+    ggbApplet.evalCommand(`P=(0,0,0)`);
+    ggbApplet.setPointSize(`P`, 9);
+
     setScoreText(api);
-    calcRandomPoint();
+    setRandomPoint();
     api.setColor('P', 0, 175, 0);
     api.showAlgebraInput(false);
 }
@@ -137,22 +216,25 @@ function gameFinished() {
 
 
 function onRoundFinished() {
-    ggbApplet.evalCommand('Current=(0,0,0)');
-    ggbApplet.evalCommand('Last=(0,0,0)');
-    calcRandomPoint();
-    alpha = 0;
-    beta = 0;
-    updateState = 0;
+    setCurrentPointToOrigin();
+    setRandomPoint();
     updateVectors();
 }
 
-function reset () {
+function reset() {
     onRoundFinished();
-    score = 0;
-    setScoreText(ggbApplet);
+    // score = 0;
+    // setScoreText(ggbApplet);
     deletePlane();
 }
 
+function setCurrentPointToOrigin() {
+    alpha = 0;
+    beta = 0;
+    updateState = 0;
+    ggbApplet.evalCommand('Current=(0,0,0)');
+    ggbApplet.evalCommand('Last=(0,0,0)');
+}
 
 function updateVectors() {
     const current = parseGgbVectorString(ggbApplet.getValueString('Current'));
@@ -195,10 +277,14 @@ document.addEventListener('keyup', (e) => {
             updateState = "alpha";
             updateVectors();
             break;
-        case 'e':
+        case '1':
             togglePlaneVisibility();
             break;
         case 'r':
+            setCurrentPointToOrigin();
+            break;
+        case 'n':
+            setRandomAandB();
             reset();
             break;
         case 'ArrowUp':
@@ -221,8 +307,17 @@ document.addEventListener('keyup', (e) => {
             updateState = "alpha";
             updateVectors();
             break;
+        case '2':
+            if (subscriptions.length > 0) {
+                signal.next();
+                deletePlane();
+            } else {
+                drawPlane();
+            }
+            break;
         case 'Enter':
-            drawPlane();
+            console.log("check");
+            ggbApplet.setGridVisible(true);
             break;
     }
 
@@ -233,7 +328,7 @@ function createParams() {
     const relativeMargin = 0.09;
     return {
         appName: 'classic',
-        showAlgebraInput: false,
+        showAlgebraInput: true,
         width: resolution.width,
         height: resolution.height * (1 - relativeMargin),
         material_id: 'kyvcqnyg'
