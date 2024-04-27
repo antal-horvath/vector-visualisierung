@@ -50,3 +50,14 @@ Im folgenden werden Beispiele für Aufgaben aufgelistet um die Visualisierung si
 Warum haben wir uns für diese Tools entschieden?
 - GeoGebra: Im Mathematikunterricht bereits bekannt (auch den SuS). Nützliches Tool für Visualisierungen von Funktionen in 2-3 dimensionalen Koordinatensystemen. Viele der benötigten Funktionen waren bereits verfügbar.
 - 🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉
+-🇦 🇧 🇨 🇩 🇪 🇫 🇬 🇭 🇮 🇯 🇰 🇱 🇲 🇳 🇴 🇵 🇶 🇷 🇸 🇹 🇺 🇻 🇼 🇽 🇾 🇿
+
+🆆🅰🆂🅳🅽
+
+🅆🄰🅂🄳🄽
+
+ 🇼  🇦  🇸  🇩  🇳 
+
+🅦🅐🅢🅓🅝
+
+ⓦⓐⓢⓓⓝ
