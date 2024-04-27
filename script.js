@@ -13,12 +13,19 @@ const minXYZ = -2;
 const maxXYZ = 2;
 const drawRefreshRate = 50;
 
+// const colorVector1 = [255, 165, 0];
+// const colorVector2 = [255, 0, 255];
+const colorVector1 = [255, 0, 0];
+const colorVector2 = [0, 0, 255];
+
+
 // params
 let alpha = 0;
 let beta = 0;
 let updateState = 0;
 let score = 0;
 let showPlane = false;
+let showVectorConstruction = false;
 const planePointList = [];
 
 // rxjs objects
@@ -163,13 +170,26 @@ function ggbOnInit(name, api){
     api.evalCommand('B=(0,2,1)');
     api.evalCommand('O=(0,0,0)');
     api.evalCommand('a=Vector(A)');
-    api.setColor('a', 255, 0, 0);
+    api.setColor('a', ...colorVector1);
     api.evalCommand('b=Vector(B)');
-    api.setColor('b', 0, 0, 255);
+    api.setColor('b', ...colorVector2);
     api.evalCommand('Current=(0,0,0)');
     api.evalCommand('Last=(0,0,0)');
     api.evalCommand('p=Plane(O,A,B)');
     api.evalCommand('t=Vector(Last,Current)');
+
+    api.evalCommand('current_a=Vector(O)');
+    api.setColor('current_a', ...colorVector1);
+    api.setLineThickness('current_a', 1);
+    api.setVisible('current_a', false);
+    api.evalCommand('current_b=Vector(O)');
+    api.setColor('current_b', ...colorVector2);
+    api.setLineThickness('current_b', 1);
+    api.setVisible('current_b', false);
+    api.evalCommand('current=Vector(O,Current)');
+    api.setColor('current', 0, 0, 0);
+    api.setLineThickness('current', 1);
+    api.setVisible('current', false);
 
     api.setLineStyle('t', 2);
 
@@ -215,6 +235,12 @@ function setScoreText(api) {
     api.setTextValue('score', 'Score: ' + score);
 }
 
+function toggleVectorConstructionVisibility() {
+    showVectorConstruction = !showVectorConstruction;
+    ggbApplet.setVisible('current_a', showVectorConstruction);
+    ggbApplet.setVisible('current_b', showVectorConstruction);
+    ggbApplet.setVisible('current', showVectorConstruction);
+}
 
 function onHit() {
     return timer(0, 100).pipe(
@@ -264,10 +290,13 @@ function updateVectors() {
     ggbApplet.evalCommand(`Current=O + ${alpha}*a + ${beta}*b`);
     ggbApplet.evalCommand('t=Vector(Last,Current)');
 
+    ggbApplet.evalCommand(`current_a=Vector(O,O + ${alpha}*a)`);
+    ggbApplet.evalCommand(`current_b=Vector(O + ${alpha}*a, O + ${alpha}*a + ${beta}*b)`);
+
     if (updateState === "alpha") {
-        ggbApplet.setColor('t', 255, 0, 0);
+        ggbApplet.setColor('t', ...colorVector1);
     } else if (updateState === "beta") {
-        ggbApplet.setColor('t', 0, 0, 255);
+        ggbApplet.setColor('t', ...colorVector2);
     }
 
     updateState = 0;
@@ -341,6 +370,9 @@ document.addEventListener('keyup', (e) => {
         case 'Enter':
             console.log("check");
             ggbApplet.setGridVisible(true);
+            break;
+        case '3':
+            toggleVectorConstructionVisibility();
             break;
     }
 

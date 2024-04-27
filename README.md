@@ -22,6 +22,8 @@ Ebene zeichnen: 1️⃣
 
 Punkte in der Ebene Zeichnern: 2️⃣
 
+Vektorkonstruktion anzeigen: 3
+
 Neue Ausgangsvektoren: 🇳
 
 ## Didaktisches Konzept
@@ -44,7 +46,7 @@ Im folgenden werden Beispiele für Aufgaben aufgelistet um die Visualisierung si
 3. Schau dir die Punkte **Current** und **P** an. Current ist der aktuelle plaue Punkt und P ist der zu erreichende Punkt. Wenn du die Vektoren a beziehungsweise b addiert oder subtrahierst (Pfeiltaste klickst) was passiert dann mit den Koordinaten des Punkt **Current**? Notiere die Erkenntnisse.
 4. Versuche den Punkt **P** rechnerisch zu erreichen indem du die eine Gleichungssystem aufstellst (P=t*a+s*b) und bestimme wie oft a und b verwendet werden müssen um den Punt zu erreichen. Überprüfe indem du die Pfeiltasten so oft klickst wie du bestimmt hast.
 5. Generiere neue Vektoren mit **N** und wiederhole Aufgaben deiner Wahl. Wie sieht die Ebene aus, die durch die neuen Vektoren erzeugt wird?
-
+6. Studiere mit **3** wie der Vektor **current** durch Vielfache von **a** und **b** entsteht.
 
 
 ## Umsetzung des Projektes
