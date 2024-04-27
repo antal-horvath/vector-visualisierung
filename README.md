@@ -1,5 +1,5 @@
 # vector-visualisierung
-Projekt zur **Visualisierung von Vektoren in der Ebene**.
+Projekt zur **Visualisierung von Vektoren im Raum**.
 
 ## Benutzung
 Das Programm zur Vektorvisualisierung dient dem Verständnis und soll den Lernenden beim Erarbeiten der Darstellung einer Ebene durch zwei (linear unabhängige) Vektoren helfen.
