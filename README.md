@@ -2,7 +2,7 @@
 Projekt zur **Visualisierung von Vektoren in der Ebene**.
 
 ## Benutzung
-Das Programm zur Vektorvisualisierung dient dem Verständnis und soll den Lernenden beim Erarbeiten der Darstellung einer Ebene durch zwei (linear unabhängige) Vektoren.
+Das Programm zur Vektorvisualisierung dient dem Verständnis und soll den Lernenden beim Erarbeiten der Darstellung einer Ebene durch zwei (linear unabhängige) Vektoren helfen.
 Die Lernenden haben das Ziel Punkte in einer Ebene zu erreichen, indem sie sich mit den Vektoren im Raum bewegen.
 
 ## Befehle
