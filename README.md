@@ -23,7 +23,7 @@ Punkte in der Ebene Zeichnern: 2️⃣
 Neue Ausgangsvektoren: **N**
 
 ## Didaktisches Konzept
-Ziel bei der Arbeitung mit der Visualisierung ist:
+Ziel bei der Bearbeitung mit der Visualisierung ist:
 
 - Die Lernenden entdecken spielerisch, dass Punkte in einer Ebene erreicht werden können, indem sie die beiden Vektoren miteinander addieren.
 - Die Lernenden fördern ihr Verständnis vom 3-Dimensionalem Raum
