@@ -3,15 +3,15 @@ const { range, filter, map, takeUntil, timer, flatMap, tap, delay, pipe, Subject
 const el = document.getElementById('ggb')
 
 // hyperparams
-const minI= -5;
-const minJ= -5;
-const maxI= 5;
-const maxJ= 5;
+const minI= -4;
+const minJ= -4;
+const maxI= 4;
+const maxJ= 4;
 const minPlaneDraw = -3;
 const maxPlaneDraw = 3;
 const minXYZ = -2;
 const maxXYZ = 2;
-const drawRefreshRate = 500;
+const drawRefreshRate = 200;
 
 // params
 let alpha = 0;
