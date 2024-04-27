@@ -13,6 +13,12 @@ Die Bewegungen:
 - *+* Vektor b: d *oder* "rechte Pfeiltaste"
 - *-* Vektor b: a *oder* "linke Pfeiltaste"
 
+Ebene zeichnen: "1-Taste"
+
+Punkte in der Ebene Zeichnern "2-Taste"
+
+Neue Ausgangsvektoren: "n-Taste"
+
 
 
 ## Didaktisches Konzept
