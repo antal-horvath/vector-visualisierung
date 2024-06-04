@@ -39,7 +39,7 @@ Das spielerische wird mit Aufgaben ergänzt um die Lernerfahrung und das Verstä
 
 Im folgenden werden Beispiele für Aufgaben aufgelistet um die Visualisierung sinnvoll im Unterricht zu implementieren.
 
-1. Die Bewege den blauen Punkt mit Hilfe der Pfeiltasten, so dass er den Grünen Punkt erreicht. wiederhole dies, bis du 10 Punkte erreicht hast.
+1. Bewege den blauen Punkt mit Hilfe der Pfeiltasten, so dass er den Grünen Punkt erreicht. wiederhole dies, bis du 10 Punkte erreicht hast.
 2. Schalte nun die Ebene mit **1** ein und drehe die Ansicht ein wenig. Wiederhole die 1. Aufgabe und mache noch einmal 3 Punkte.
    1. Notiere, was dir auffällt. Wo liegen die Punkte und die Vektoren, die du verwendest?
    2. Erzeuge die Ebene mit **2** und beobachte, was passiert.
